@@ -4,8 +4,6 @@ import json
 with open('config.json', 'r') as f:
     config = json.load(f)
 
-print(config["domain"])
-
 domain = "https://" + config["domain"] + "/"
 
 s = requests.session()
@@ -17,4 +15,6 @@ login_data = {
 
 response = s.post(domain + "webapps/login/", login_data)
 
-print(response.content)
+response2 = s.get("https://uu.blackboard.com/bbcswebdav/pid-3322793-dt-content-rid-29760478_2/courses/BETA-2019-1-INFOB3SEC-V/huiswerk2.pdf")
+
+print(response2.content)
